@@ -1,0 +1,55 @@
+<?php
+
+namespace A2x\BlogBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass="PostRepository")
+ * @ORM\Table(name="a2x_blog_post")
+ */
+class Post
+{
+	/**
+	 * @ORM\Id()
+	 * @ORM\Column(type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	protected $id;
+
+	/**
+	 * @ORM\Column(type="string", length=128)
+	 */
+	protected $title;
+
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	protected $description;
+
+	/**
+	 * @ORM\Column(type="text", nullable=true)
+	 */
+	protected $text;
+
+	/**
+	 * @ORM\Column(type="boolean", nullable=true)
+	 */
+	protected $published = false;
+
+	/**
+	 * @ORM\Column(type="datetime", nullable=true)
+	 */
+	protected $created;
+
+	/**
+	 * @ORM\Column(type="datetime", nullable=true)
+	 */
+	protected $updated;
+
+	public function __toString()
+	{
+		return $this->title;
+	}
+
+}
