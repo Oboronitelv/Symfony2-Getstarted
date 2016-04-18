@@ -29,7 +29,7 @@ class PostController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        
+
         $entities = $em->getRepository('A2xBlogBundle:Post')->findAll();
 
         // Test logger
